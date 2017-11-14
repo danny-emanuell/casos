@@ -1,0 +1,14 @@
+estructura de bases de datos:
+--caso:
+    _idDelCaso
+    _#deCompra
+    _NombreDelCliente
+    _idDelCliente (Número unico, puede ser su número de teléfono,DPI,NIT, Etc.)
+    _FechaDelCaso
+    _EstadoDelCaso
+    _Seguimiento [
+        _fechaDelSeguimiento
+        _descripción del caso
+    ] ( Este sera de tipo array donde se escribira todo el seguimiento que se le dio al caso)
+
+

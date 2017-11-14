@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <div class="card">
+      <div class="card-header text-uppercase">
+        Agregar caso:
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="form-row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="# de sección" [(ngModel)]="_case._customerID" >
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Nombre del Cliente" [(ngModel)]="_case._customerName" >
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="# de compra" [(ngModel)]="_case._noOrder" >
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Descripción del Caso" [(ngModel)]="_case._caseDescription" >
+            </div>
+            <button class="btn btn-success" (click)="addCase(_case)">
+              <i class="fa fa-floppy-o" aria-hidden="true"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+</div>
