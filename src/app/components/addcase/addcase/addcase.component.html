@@ -7,18 +7,18 @@
         <form>
           <div class="form-row">
             <div class="col">
-              <input type="text" class="form-control" placeholder="# de sección" [(ngModel)]="_case._customerID" >
+              <input type="text" class="form-control" placeholder="# de sección" name="customerid" [(ngModel)]="customerid" >
             </div>
             <div class="col">
-              <input type="text" class="form-control" placeholder="Nombre del Cliente" [(ngModel)]="_case._customerName" >
+              <input type="text" class="form-control" placeholder="Nombre del Cliente" name="customername" [(ngModel)]="customername" >
             </div>
             <div class="col">
-              <input type="text" class="form-control" placeholder="# de compra" [(ngModel)]="_case._noOrder" >
+              <input type="text" class="form-control" placeholder="# de compra" name="order" [(ngModel)]="noOrder" >
             </div>
             <div class="col">
-              <input type="text" class="form-control" placeholder="Descripción del Caso" [(ngModel)]="_case._caseDescription" >
+              <input type="text" class="form-control" placeholder="Descripción del Caso" name="case" [(ngModel)]="casedescription" >
             </div>
-            <button class="btn btn-success" (click)="addCase(_case)">
+            <button (click)="addCase()" class="btn btn-success">
               <i class="fa fa-floppy-o" aria-hidden="true"></i>
             </button>
           </div>

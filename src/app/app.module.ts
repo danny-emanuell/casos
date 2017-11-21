@@ -12,12 +12,14 @@ import { App_Routes } from './services/app.routes';
 import { DatacasesService } from './services/datacases/datacases.service';
 import { AddcaseComponent } from './components/addcase/addcase/addcase.component';
 import { CasesComponent } from './components/cases/cases.component';
+import { ShowcasesComponent } from './components/showcases/showcases.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddcaseComponent,
-    CasesComponent
+    CasesComponent,
+    ShowcasesComponent
   ],
   imports: [
     BrowserModule,

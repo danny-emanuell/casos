@@ -4,12 +4,25 @@ import { ICase } from './../datacases.interfaces';
 @Injectable()
 export class DatacasesService {
 
-  Cases: ICase[];
+  Cases: ICase[] = [];
 
   constructor() { }
 
   addCase( ncase: ICase ){
-    this.Cases.unshift( ncase );
+    console.log(ncase);
+    return new Promise(( resolve , reject ) => {
+      if( this.Cases.unshift(ncase) ) {
+        resolve({
+          code: 200,
+          message: 'Se guardo correctamente'
+        });
+      } else {
+        reject( {
+          code: 501,
+          message: 'Error al guardar la información'
+        });
+      }
+    })
   }
 
   getCases(){
