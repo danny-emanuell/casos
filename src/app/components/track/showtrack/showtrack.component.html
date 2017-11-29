@@ -1,0 +1,21 @@
+<hr>
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col-3">
+          FECHA
+        </th>
+        <th scope="col-6">
+          DESCRIPCIÓN
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let track of caseSelected._tracking"  >
+        <th scope="row"> {{track.date}} </th>
+        <td> {{track.track}} </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,19 @@
+<div class="container-fluid" >
+  <div class="card">
+    <div class="card-header text-white bg-info text-uppercase">
+      Seguimiento del caso: <b> {{ caseSelected._caseDescription }} </b>
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Agregar seguimiento..." aria-label="Search for..." name="track" [(ngModel)]="track">
+          <span class="input-group-btn">
+            <button class="btn btn-success" type="button" (click)="addTrack()">
+              <i class="fa fa-floppy-o" aria-hidden="true"></i>
+            </button>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

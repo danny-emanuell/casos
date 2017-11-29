@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="card">
-      <div class="card-header text-uppercase">
+      <div class="card-header text-uppercase text-white bg-danger">
         Agregar caso:
       </div>
       <div class="card-body">
@@ -13,10 +13,10 @@
               <input type="text" class="form-control" placeholder="Nombre del Cliente" name="customername" [(ngModel)]="customername" >
             </div>
             <div class="col">
-              <input type="text" class="form-control" placeholder="# de compra" name="order" [(ngModel)]="noOrder" >
+              <input type="text" class="form-control" placeholder="Descripción del Caso" name="case" [(ngModel)]="casedescription" >
             </div>
             <div class="col">
-              <input type="text" class="form-control" placeholder="Descripción del Caso" name="case" [(ngModel)]="casedescription" >
+              <input type="text" class="form-control" placeholder="# de compra (opcional)" name="order" [(ngModel)]="noOrder" >
             </div>
             <button (click)="addCase()" class="btn btn-success">
               <i class="fa fa-floppy-o" aria-hidden="true"></i>

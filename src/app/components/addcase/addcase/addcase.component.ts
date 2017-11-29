@@ -18,22 +18,23 @@ export class AddcaseComponent implements OnInit {
   constructor( public datacase: DatacasesService ) { }
 
   ngOnInit() {
-    console.log(this.datacase.getCases());
+    this.datacase.getCases();
   }
 
   addCase() {
     const ncase: ICase = {
-      _noOrder: this.noOrder,
+      _noOrder: ( this.noOrder === undefined ) ? '------------' : this.noOrder ,
       _customerName: this.customername,
       _customerID: this.customerid,
       _caseDate: Date.now(),
       _caseStatus: 'INICIALIZADO',
-      _caseDescription: this.casedescription
+      _caseDescription: this.casedescription,
+      _tracking: []
     }
 
     this.datacase.addCase( ncase )
       .then( rs => {
-        console.log( rs );
+        //console.log( rs ); // aqui da la respuesta si se grabo correctamente la información.
       })
       .catch( err => {
         console.log(  err );

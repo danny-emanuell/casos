@@ -16,7 +16,6 @@ export class ShowcasesComponent implements OnInit {
 
   ngOnInit() {
     this.getData();
-    console.log( moment(Date.now(), 'MM-DD-YYYY') );
   }
 
   getData() {

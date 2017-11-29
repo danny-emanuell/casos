@@ -13,13 +13,21 @@ import { DatacasesService } from './services/datacases/datacases.service';
 import { AddcaseComponent } from './components/addcase/addcase/addcase.component';
 import { CasesComponent } from './components/cases/cases.component';
 import { ShowcasesComponent } from './components/showcases/showcases.component';
+import { AddtrackComponent } from './components/track/addtrack/addtrack.component';
+import { MaintrackComponent } from './components/maintrack/maintrack.component';
+import { ShowtrackComponent } from './components/track/showtrack/showtrack.component';
+
+import { LocalstorageService } from './services/localstorage/localstorage.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddcaseComponent,
     CasesComponent,
-    ShowcasesComponent
+    ShowcasesComponent,
+    AddtrackComponent,
+    MaintrackComponent,
+    ShowtrackComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +35,7 @@ import { ShowcasesComponent } from './components/showcases/showcases.component';
     HttpModule,
     App_Routes
   ],
-  providers: [ DatacasesService  ],
+  providers: [ DatacasesService , LocalstorageService  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,9 +5,11 @@
         <th scope="col">Fecha</th>
         <th scope="col"># Sección</th>
         <th scope="col">Cliente</th>
-        <th scope="col"># Compra </th>
         <th scope="col"> Caso </th>
+        <th scope="col"># Compra </th>
         <th scope="col">Estado</th>
+        <th> <i class="fa fa-pencil-square-o fa-1x" aria-hidden="true"></i> </th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -15,9 +17,17 @@
         <th> {{case._caseDate}} </th>
         <td> {{case._customerID}} </td>
         <td> {{case._customerName}} </td>
-        <td> {{case._noOrder}} </td>
         <td> {{case._caseDescription}} </td>
+        <td> {{case._noOrder}} </td>
         <td> {{case._caseStatus}} </td>
+        <td> 
+          <a [routerLink]=" [ '/cases' , case._caseDate ] ">
+            <i class="fa fa-pencil-square-o fa-x" aria-hidden="true"></i> 
+          </a>
+        </td>
+        <td>
+          <span class="badge badge-pill badge-info" > {{ case._tracking.length }} </span>
+        </td>
       </tr>
     </tbody>
   </table>

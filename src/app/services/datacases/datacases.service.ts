@@ -9,7 +9,6 @@ export class DatacasesService {
   constructor() { }
 
   addCase( ncase: ICase ){
-    console.log(ncase);
     return new Promise(( resolve , reject ) => {
       if( this.Cases.unshift(ncase) ) {
         resolve({
@@ -23,7 +22,7 @@ export class DatacasesService {
         });
       }
     })
-  }
+  };
 
   getCases(){
     return this.Cases;
