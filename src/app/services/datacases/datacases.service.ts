@@ -2,13 +2,13 @@ import { element } from 'protractor';
 import { Injectable } from '@angular/core';
 import { ICase } from './../datacases.interfaces';
 import { LocalstorageService } from 'app/services/localstorage/localstorage.service';
-import { forEach } from '@angular/router/src/utils/collection';
 
 
 @Injectable()
 export class DatacasesService {
 
   Cases: ICase[] = [];
+  statusCases = ['INICIALIZADO', 'EN PROCESSO', 'FINALIZADO'];
 
   constructor( private localStorage: LocalstorageService ) {
     this.getCases();
@@ -25,12 +25,16 @@ export class DatacasesService {
   }
 
   public insertTrack( idcase, tracking) {
-    this.localStorage.updateDataTrack(idcase, tracking);
+    this.localStorage.updateDataTrack(idcase, tracking)
+      .then( rs => {
+        //respuesta al momento de grabar el tracking
+      })
+      .catch( error => {
+      })
   }
 
   public getTrack( idcase ) {
     let caseSelected = this.Cases.find(findCase);
-    console.log(caseSelected._tracking);
     return caseSelected;
 
     function findCase( cases ) {

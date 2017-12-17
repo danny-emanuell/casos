@@ -13,8 +13,8 @@
     </thead>
     <tbody>
       <tr *ngFor="let track of caseSelected._tracking"  >
-        <!--<th scope="row"> {{track.date}} </th>-->
-        <td> {{track}} </td>
+        <td> {{track.dateTrack | date: 'dd-MMM-yyyy HH:mm:ss' }} </td>
+        <td scope="row"> {{track.track}} </td>
       </tr>
     </tbody>
   </table>

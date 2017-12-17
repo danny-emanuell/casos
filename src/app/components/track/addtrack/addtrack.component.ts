@@ -20,8 +20,6 @@ export class AddtrackComponent implements OnInit , OnDestroy {
     this.observerRef = this.route.params.subscribe( params => {
       this.IDselected = params[ 'id' ];
     } );
-
-    this.getCase();
   }
 
   ngOnDestroy(){
@@ -29,25 +27,14 @@ export class AddtrackComponent implements OnInit , OnDestroy {
   }
 
   addTrack(){
-    
+
     const data = {
       track: this.track,
       dateTrack: Date.now()
     }
 
     this.dataCase.insertTrack( this.IDselected , data);
+    this.track = '';
   }
-
-  getCase(){
-    const id = this.IDselected;
-    //return this.caseSelected = this.datacases.getCases().find( buscador );
-
-    function buscador( cases ) {
-      return cases._caseDate == Number(id);
-    }
-  }
-
-
-
 
 }

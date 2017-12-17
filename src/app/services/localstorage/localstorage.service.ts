@@ -25,6 +25,8 @@ export class LocalstorageService {
     }
   }
 
+  statusCases = ['INICIALIZADO', 'EN PROCESO', 'FINALIZADO'];
+
   private cases = new localStorageDB( 'caseLib' , localStorage );
 
   constructor() {
@@ -58,11 +60,25 @@ export class LocalstorageService {
   };
 
   public updateDataTrack( idcase, dataToUpdate ) {
-    this.cases.update( this.tables.cases.nameTable, { '_tracking' : dataToUpdate }, function (row){
-      console.log(row);
-      return row;
-    } )
-    this.cases.commit();
+    const statusInprocess = this.statusCases[1];
+    return new Promise( (resolve, reject) => {
+      try{
+        this.cases.update( this.tables.cases.nameTable, { _caseDate: idcase } , function(row){
+          row._caseStatus = 'EN PROCESO';
+          row._tracking.push( dataToUpdate );
+        });
+        this.cases.commit();
+        resolve({
+          code: 200,
+          message: `Mensaje guardado`
+        })
+      } catch( error ) {
+        reject({
+          code: 501,
+          message: error
+        })
+      }
+    })
   }
 
   public getData() {

@@ -14,7 +14,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let case of cases" >
-        <th> {{case._caseDate}} </th>
+        <td> {{case._caseDate | date: 'dd-MMM-yyyy HH:mm:ss' }} </td>
         <td> {{case._customerID}} </td>
         <td> {{case._customerName}} </td>
         <td> {{case._caseDescription}} </td>

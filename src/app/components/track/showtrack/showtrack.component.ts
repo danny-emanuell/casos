@@ -30,7 +30,6 @@ export class ShowtrackComponent implements OnInit , OnDestroy {
   }
 
   getData() {
-    this.caseSelected = this.datacases.getTrack( this.IDselected );
-    console.log(this.caseSelected._tracking)
+    console.log(this.caseSelected = this.datacases.getTrack( this.IDselected ));
   }
 }

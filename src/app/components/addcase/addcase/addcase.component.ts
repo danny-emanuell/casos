@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ICase } from '../../../services/datacases.interfaces';
 import { DatacasesService } from './../../../services/datacases/datacases.service';
-import { LocalstorageService } from 'app/services/localstorage/localstorage.service';
 
 @Component({
   selector: 'app-addcase',
@@ -18,9 +17,7 @@ export class AddcaseComponent implements OnInit {
 
   constructor( public datacase: DatacasesService ) { }
 
-  ngOnInit() {
-    //this.datacase.getCases();
-  }
+  ngOnInit() {}
 
   addCase() {
     const ncase: ICase = {
@@ -28,7 +25,7 @@ export class AddcaseComponent implements OnInit {
       _customerName: this.customername,
       _customerID: this.customerid,
       _caseDate: Date.now(),
-      _caseStatus: 'INICIALIZADO',
+      _caseStatus: this.datacase.statusCases[0],
       _caseDescription: this.casedescription,
       _tracking: []
     }
