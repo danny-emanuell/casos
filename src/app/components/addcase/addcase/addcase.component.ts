@@ -16,7 +16,7 @@ export class AddcaseComponent implements OnInit {
   public noOrder: string;
   public casedescription: string;
 
-  constructor( public datacase: DatacasesService, private localStorage: LocalstorageService ) { }
+  constructor( public datacase: DatacasesService ) { }
 
   ngOnInit() {
     //this.datacase.getCases();
@@ -32,6 +32,8 @@ export class AddcaseComponent implements OnInit {
       _caseDescription: this.casedescription,
       _tracking: []
     }
+
+    this.datacase.insertCase( ncase );
 
       this.noOrder = '';
       this.customername = '';

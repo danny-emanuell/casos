@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DatacasesService } from './../../services/datacases/datacases.service';
-import { ICase } from '../../services/datacases.interfaces';
-import * as moment from 'moment';
+import { DatacasesService } from '../../services/datacases/datacases.service';
 
 @Component({
   selector: 'app-showcases',
@@ -12,15 +10,15 @@ export class ShowcasesComponent implements OnInit {
 
   public cases;
 
-  constructor(private datacase: DatacasesService) { }
+  constructor( private dataCase: DatacasesService) {}
 
   ngOnInit() {
     this.getData();
   }
 
-  getData() {
-    //this.cases =  this.datacase.getCases();
-    return this.cases;
+  public getData() {
+    this.cases = this.dataCase.Cases;
   }
+
 
 }

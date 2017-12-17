@@ -18,6 +18,7 @@ import { MaintrackComponent } from './components/maintrack/maintrack.component';
 import { ShowtrackComponent } from './components/track/showtrack/showtrack.component';
 
 import { LocalstorageService } from './services/localstorage/localstorage.service';
+import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { LocalstorageService } from './services/localstorage/localstorage.servic
     ShowcasesComponent,
     AddtrackComponent,
     MaintrackComponent,
-    ShowtrackComponent
+    ShowtrackComponent,
+    SortPipe
   ],
   imports: [
     BrowserModule,
