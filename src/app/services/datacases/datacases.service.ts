@@ -24,6 +24,21 @@ export class DatacasesService {
       });
   }
 
+  public insertTrack( idcase, tracking) {
+    this.localStorage.updateDataTrack(idcase, tracking);
+  }
+
+  public getTrack( idcase ) {
+    let caseSelected = this.Cases.find(findCase);
+    console.log(caseSelected._tracking);
+    return caseSelected;
+
+    function findCase( cases ) {
+      return cases._caseDate === Number(idcase);
+    }
+
+  }
+
   public getCases() {
     this.localStorage.getData()
       .then( cases => {

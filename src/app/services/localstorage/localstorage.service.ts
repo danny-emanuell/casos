@@ -39,7 +39,7 @@ export class LocalstorageService {
     }
   }
 
-  insertData( ncase ) {
+  public insertData( ncase ) {
     return new Promise((resolve, reject) => {
       try {
         this.cases.insert( this.tables.cases.nameTable , ncase )
@@ -57,12 +57,20 @@ export class LocalstorageService {
     });
   };
 
-  getData() {
+  public updateDataTrack( idcase, dataToUpdate ) {
+    this.cases.update( this.tables.cases.nameTable, { '_tracking' : dataToUpdate }, function (row){
+      console.log(row);
+      return row;
+    } )
+    this.cases.commit();
+  }
+
+  public getData() {
     return new Promise( (resolve, reject) => {
       try {
         resolve({
           code: 200,
-          message: this.cases.queryAll( this.tables.cases.nameTable )
+          message: this.cases.queryAll( this.tables.cases.nameTable, { sort: [['ID', 'DESC']]} )
         })
       } catch( error ) {
         reject({

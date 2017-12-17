@@ -21,7 +21,7 @@ export class ShowtrackComponent implements OnInit , OnDestroy {
       this.IDselected = params[ 'id' ];
     } );
 
-    this.getCase();
+    this.getData();
 
   }
 
@@ -29,12 +29,8 @@ export class ShowtrackComponent implements OnInit , OnDestroy {
     this.observerRef.unsubscribe();
   }
 
-  getCase(){
-    const id = this.IDselected;
-    //return this.caseSelected = this.datacases.getCases().find( buscador );
-    
-    function buscador( cases ) {
-      return cases._caseDate == Number(id);
-    }
+  getData() {
+    this.caseSelected = this.datacases.getTrack( this.IDselected );
+    console.log(this.caseSelected._tracking)
   }
 }
