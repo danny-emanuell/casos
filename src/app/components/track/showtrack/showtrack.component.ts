@@ -31,7 +31,7 @@ export class ShowtrackComponent implements OnInit , OnDestroy {
 
   getCase(){
     const id = this.IDselected;
-    return this.caseSelected = this.datacases.getCases().find( buscador );
+    //return this.caseSelected = this.datacases.getCases().find( buscador );
     
     function buscador( cases ) {
       return cases._caseDate == Number(id);

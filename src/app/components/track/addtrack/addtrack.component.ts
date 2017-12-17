@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DatacasesService } from './../../../services/datacases/datacases.service';
+import { ICase } from '../../../services/datacases.interfaces';
+import * as localStorage from 'localstoragedb';
 
 @Component({
   selector: 'app-addtrack',
@@ -13,6 +15,25 @@ export class AddtrackComponent implements OnInit , OnDestroy {
   public IDselected: string;
   public caseSelected: any;
   public track: string;
+
+  Cases: ICase[] = [];
+
+  private tables = {
+    cases: {
+      nameTable: 'cases',
+      nameColumns: [
+        '_caseDate',
+        '_caseDescription',
+        '_caseStatus',
+        '_customerID',
+        '_customerName',
+        '_noOrder',
+        '_tracking'
+      ]
+    }
+  }
+  public nameDatabase = 'caseDB';
+  private casesDB = new localStorage( this.nameDatabase , localStorage );
 
   constructor( private route: ActivatedRoute , private datacases: DatacasesService  ) { }
 
@@ -30,14 +51,15 @@ export class AddtrackComponent implements OnInit , OnDestroy {
 
   getCase(){
     const id = this.IDselected;
-    return this.caseSelected = this.datacases.getCases().find( buscador );
-    
+    //return this.caseSelected = this.datacases.getCases().find( buscador );
+
     function buscador( cases ) {
       return cases._caseDate == Number(id);
     }
   }
 
   addTrack(){
+    const cases = this.casesDB;
     this.caseSelected._tracking.unshift(
       {
         date:Date.now(),

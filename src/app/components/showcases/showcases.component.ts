@@ -19,7 +19,7 @@ export class ShowcasesComponent implements OnInit {
   }
 
   getData() {
-    this.cases =  this.datacase.getCases();
+    //this.cases =  this.datacase.getCases();
     return this.cases;
   }
 
