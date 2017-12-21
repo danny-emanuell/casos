@@ -27,14 +27,17 @@ export class DatacasesService {
   public insertTrack( idcase, tracking) {
     this.localStorage.updateDataTrack(idcase, tracking)
       .then( rs => {
-        //respuesta al momento de grabar el tracking
+        console.log( rs );
+        this.getCases();
+
       })
       .catch( error => {
+        console.log( error );
       })
   }
 
-  public getTrack( idcase ) {
-    let caseSelected = this.Cases.find(findCase);
+  public getTrack( idcase: number ) {
+    const caseSelected = this.Cases.find(findCase);
     return caseSelected;
 
     function findCase( cases ) {

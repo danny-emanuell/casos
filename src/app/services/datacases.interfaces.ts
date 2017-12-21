@@ -1,6 +1,5 @@
 export  interface ICase {
     _user?: string;
-    _idCaese?: number;
     _noOrder: string;
     _customerName: string;
     _customerID: string;

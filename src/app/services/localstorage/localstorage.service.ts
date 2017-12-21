@@ -7,17 +7,12 @@ export class LocalstorageService {
   private tables = {
     cases: {
       nameTable: 'cases',
-      nameColumns: [
-        '_idcase', 
-        'date',
+      nameColumns:[
         '_user',
-        '_idCaese',
-        'number',
         '_noOrder',
         '_customerName',
         '_customerID',
         '_caseDate',
-        'number',
         '_caseStatus',
         '_caseDescription',
         '_tracking'
@@ -60,25 +55,37 @@ export class LocalstorageService {
   };
 
   public updateDataTrack( idcase, dataToUpdate ) {
-    const statusInprocess = this.statusCases[1];
+    const statusCase = this.statusCases;
     return new Promise( (resolve, reject) => {
-      try{
-        this.cases.update( this.tables.cases.nameTable, { _caseDate: idcase } , function(row){
-          row._caseStatus = 'EN PROCESO';
-          row._tracking.push( dataToUpdate );
-        });
-        this.cases.commit();
-        resolve({
-          code: 200,
-          message: `Mensaje guardado`
-        })
-      } catch( error ) {
-        reject({
-          code: 501,
-          message: error
-        })
-      }
-    })
+      this.cases.update( this.tables.cases.nameTable , { _caseDate: idcase }, function( row ) {
+       try {
+          if ( row._caseStatus !== statusCase[0]  ) {
+            row._tracking.push( dataToUpdate );
+          } else if ( row._caseStatus === statusCase[0] ) {
+            row._caseStatus = statusCase[1];
+            row._tracking.push( dataToUpdate );
+          } else if ( row._caseStatus === statusCase[2] ) {
+            resolve({
+              code: 404,
+              message: 'Ya no puedes ingresar mas información ya que el caso esta cerrado.'
+            });
+          }
+
+          resolve({
+            code: 200,
+            message: 'alright'
+          });
+          return row;
+       } catch ( error ) {
+         reject({
+           code: 501,
+           message: error
+         })
+       }
+
+      } );
+      this.cases.commit();
+    } );
   }
 
   public getData() {
@@ -86,7 +93,8 @@ export class LocalstorageService {
       try {
         resolve({
           code: 200,
-          message: this.cases.queryAll( this.tables.cases.nameTable, { sort: [['ID', 'DESC']]} )
+          message: this.cases.queryAll( this.tables.cases.nameTable, 
+            { sort: [['ID', 'DESC']]} )
         })
       } catch( error ) {
         reject({

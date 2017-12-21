@@ -9,6 +9,7 @@ import { DatacasesService } from '../../services/datacases/datacases.service';
 export class ShowcasesComponent implements OnInit {
 
   public cases;
+  public showCase = true;
 
   constructor( private dataCase: DatacasesService) {}
 
@@ -18,6 +19,11 @@ export class ShowcasesComponent implements OnInit {
 
   public getData() {
     this.cases = this.dataCase.Cases;
+    this.cases.forEach(element => {
+      if(element['_caseStatus'] === 'INICIALIZADO') {
+        this.showCase = false;
+      }
+    });
   }
 
 

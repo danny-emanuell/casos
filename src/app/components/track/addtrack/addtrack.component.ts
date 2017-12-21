@@ -20,6 +20,8 @@ export class AddtrackComponent implements OnInit , OnDestroy {
     this.observerRef = this.route.params.subscribe( params => {
       this.IDselected = params[ 'id' ];
     } );
+
+    this.caseSelected = this.dataCase.getTrack( Number(this.IDselected) );
   }
 
   ngOnDestroy(){
