@@ -19,11 +19,6 @@ export class ShowcasesComponent implements OnInit {
 
   public getData() {
     this.cases = this.dataCase.Cases;
-    this.cases.forEach(element => {
-      if(element['_caseStatus'] === 'INICIALIZADO') {
-        this.showCase = false;
-      }
-    });
   }
 
 

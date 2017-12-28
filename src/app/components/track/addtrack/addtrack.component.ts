@@ -30,12 +30,21 @@ export class AddtrackComponent implements OnInit , OnDestroy {
 
   addTrack(){
 
-    const data = {
-      track: this.track,
-      dateTrack: Date.now()
+    switch( this.track ) {
+      case undefined:
+        alert("El campo no debe quedar en blanco")
+        break;
+      case "":
+        alert("El campo no debe quedar en blanco")
+        break;
+      default:
+        const data = {
+          track: this.track,
+          dateTrack: Date.now()
+        }
+        this.dataCase.insertTrack( this.IDselected , data);
     }
-
-    this.dataCase.insertTrack( this.IDselected , data);
+    
     this.track = '';
   }
 
