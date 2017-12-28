@@ -1,4 +1,3 @@
-import { element } from 'protractor';
 import { Injectable } from '@angular/core';
 import { ICase } from './../datacases.interfaces';
 import { LocalstorageService } from 'app/services/localstorage/localstorage.service';
